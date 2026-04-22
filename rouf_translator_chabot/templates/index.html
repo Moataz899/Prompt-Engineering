@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rouf_Translator 🌍</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="chat-window">
+
+      <!-- Header -->
+      <div class="header">
+        <div class="logo-ring">🌐</div>
+        <div class="header-info">
+          <div class="header-title">Rouf_Translator</div>
+          <div class="header-sub">AI-Powered · 60+ Languages</div>
+        </div>
+        <div class="online-dot"></div>
+      </div>
+
+      <!-- Language bar -->
+      <div class="lang-bar">
+        <span class="lang-label">Translate to:</span>
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
+            🌍 <span id="selectedLang">Arabic</span>
+            <span class="chevron">▼</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <input class="lang-search" id="langSearch" placeholder="Search language..." oninput="filterLangs(this.value)" />
+            <div class="lang-list" id="langList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div class="messages" id="messages" onclick="closeLangMenu()">
+        <!-- Welcome message injected by JS -->
+      </div>
+
+      <!-- Suggestion chips -->
+      <div class="suggestions" id="suggestions"></div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <div class="input-row">
+          <textarea
+            id="userInput"
+            class="text-input"
+            placeholder="Type to translate into Arabic..."
+            rows="1"
+            onkeydown="handleKey(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>➤</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
