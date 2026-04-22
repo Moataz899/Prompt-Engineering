@@ -28,8 +28,9 @@ This repository contains practical examples and techniques for effective prompt 
 - **Inferring**: Sentiment analysis, emotion detection, and topic extraction
 - **Summarizing**: Focused summaries with specific constraints
 - **Iterative Development**: Refining prompts through systematic improvement
+- **Translation Systems**: Building multilingual chatbot applications with structured translation workflows
 
-## Notebook Examples
+## Projects and Examples
 
 ### [guidelines_PEG_gemini.ipynb](./notebooks/guidelines_PEG_gemini.ipynb)
 - Introduction to prompting principles
@@ -66,6 +67,32 @@ This repository contains practical examples and techniques for effective prompt 
 - Technical specification handling
 - HTML output formatting
 
+## Applications
+
+### [Rouf Translator Chatbot](./rouf_translator_chabot/)
+A multilingual translation chatbot built with FastAPI and Google Gemini, featuring:
+- **Web Interface**: Interactive chat interface with real-time translation
+- **Multiple Language Support**: Translation between various language pairs
+- **Structured Translation Workflow**: Agent-based architecture with prompt engineering
+- **RESTful API**: Clean API endpoints for integration
+- **Modern Frontend**: Responsive design with TailwindCSS
+
+#### Key Features
+- Real-time translation using Google Gemini 2.5 Flash
+- Structured prompt engineering for consistent translation quality
+- Agent-based architecture for extensible translation workflows
+- Web-based chat interface with WebSocket support
+- Comprehensive error handling and logging
+
+#### Quick Start
+```bash
+cd rouf_translator_chabot
+pip install -r requirements.txt
+copy .env.example .env
+# Edit .env with your GEMINI_API_KEY
+python main.py
+```
+
 ## Project Structure
 
 ```
@@ -79,11 +106,18 @@ PEG/
 |    |--- iterative-PEG-development-gemini.ipynb  # Prompt refinement process
 |    |--- summarizing-gemini.ipynb           # Focused summarization techniques
 |
-|--- .env                          # Your local API key (never commit this)
-|--- .env.example                  # Environment variable template
+|--- rouf_translator_chabot/                # Multilingual translation chatbot application
+|    |--- agents/                           # Translation agent implementations
+|    |--- config/                           # Configuration and logging utilities
+|    |--- models/                           # Data models and schemas
+|    |--- static/                           # Frontend assets (CSS, JavaScript)
+|    |--- main.py                           # FastAPI web application
+|    |--- requirements.txt                  # Project dependencies
+|    |--- README.md                         # Project documentation
+|    |--- .env.example                      # Environment variables template
+|
 |--- .gitignore                    # Git ignore rules
 |--- LICENSE.txt                   # MIT License file
-|--- requirements.txt              # Python dependencies
 |--- README.md                     # This file
 ```
 
@@ -91,7 +125,7 @@ PEG/
 
 ### Prerequisites
 ```bash
-pip install -U google-generativeai python-dotenv panel jupyter_bokeh
+pip install -U google-generativeai python-dotenv panel jupyter_bokeh fastapi uvicorn
 ```
 
 ### API Configuration
